@@ -1,0 +1,37 @@
+Day 1 Tasks
+
+Project Title:
+Hot Or Not
+Are you Hotter than Mars?
+
+
+Project Description:
+
+Compare your local weather to the weather on Mars. Use modal to display the results of the comparison.  
+If the weather is hotter in Mars then show an image of Mars. 
+
+
+User Story:
+To be completed in more detail
+
+
+Wireframe or Sketch of the design:
+Wireframes are being completed in JustinMind software package.
+
+
+
+APIs to be used:
+https://api.nasa.gov/index.html
+https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
+
+
+Rough Breakdown of Tasks:
+Starting point
+- Sharon on CSS exploration
+- Ash to start planning project board
+- Dallas project leader, GitHub owner and will start exploring APIs
+
+
+// Local storage to store previous search history.
+
+// Peer code review. 
