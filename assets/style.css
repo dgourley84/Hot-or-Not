@@ -12,10 +12,13 @@
 
 body {
     background-color: var(--light);
+    background-image: url(./planet-mars-mars.gif);
+    background-size: 100%;
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans", sans-serif;
-    color: var(--dark);
+    color: var(--blue);
+    text-shadow: 10px 10px 10px var(--dark);
     line-height: 1.5;
     font-size: 16px;
 }
@@ -39,7 +42,7 @@ h1 {
 h2 {
     font-weight: 400;
     margin: 5px 100px;
-    color: var(--dark);
+    color: var(--blue);
     line-height: 3;
     font-size: 1.75rem;
     text-align: center;
