@@ -11,6 +11,30 @@ const   EarthAPIKeySecond   = '3e577ad9e250c4dd28d83578156049cc'; //api key for 
 let     CityQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=perth&limit=1&appid=" + EarthAPIKey; // Earth Weather query
 
 
-console.log('Mars' , MarsAPIKey); // console log of Mars Query
+console.log('Mars' , MarsQureyUrl); // console log of Mars Query
 
 console.log('Earth', CityQueryURL); // console log of Earth Query
+
+
+function getMarsWeather(){
+    return fetch(MarsQureyUrl)
+    .then(function(data){
+        return data.json();
+    })
+    .then(function(result){
+    console.log(result);
+})
+}
+
+function getEarthWeather(){
+    return fetch(CityQueryURL)
+    .then(function(data){
+        return data.json();
+    })
+    .then(function(result){
+    console.log(result);
+})
+}
+
+getEarthWeather();
+getMarsWeather();
