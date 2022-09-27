@@ -1,0 +1,7 @@
+
+
+const weatherConditions [
+    clear sky {
+    
+        }
+]
