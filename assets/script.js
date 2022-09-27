@@ -63,11 +63,7 @@ function getLocationImage(){
         let altDescription = data.results[randomNumber].alt_description;
         console.log('image description' , altDescription)
         
-        //create image on html page
-        displayImageDiv.innerHTML = `
-        <img  src="${allImages}"  alt="${altDescription}" id="imageDisplay">
-        </div>
-        `
+        document.body.style.backgroundImage = `url(${allImages})`
     })
 }
 
