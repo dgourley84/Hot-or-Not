@@ -11,10 +11,8 @@
 }
 
 body {
-    background-image:url('./planet-mars-mars.gif');
     background-size: 100%;
     background-color: var(--light);
-    background-image: url(./planet-mars-mars.gif);
     background-size: 100%;
     margin: 0;
     padding: 0;

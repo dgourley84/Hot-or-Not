@@ -1,3 +1,4 @@
+import { weatherConditions } from "./weatherConditionsArray.js";
 
 //1. API Keys
 const   EarthAPIKey         =   'aef8ff579a371781a816a273903f8295';             //api key for the first call to get lat long
@@ -7,7 +8,7 @@ const   UnslplashClientID   =   'w6vbNd5lE3IKHzZsFY23l9srICMIUyv0YXK-OdBrOSQ';  
 //2. global const
 const   cityInput           =   document.getElementById('input-city-name');   //obtain input from HTML
 const   submitCity          =   document.getElementById('btn-search');        //button for search submission
-const   displayImageDiv     =   document.getElementById('image-Div');         //div for the display of images of the city
+// const   displayImageDiv     =   document.getElementById('image-Div');         //div for the display of images of the city
 
 
 //3. Global variables 
@@ -43,6 +44,7 @@ function getEarthWeather(){
     })
     .then(function(result){
         console.log(result);
+
 })
 })
 }
@@ -63,11 +65,6 @@ function getLocationImage(){
         let altDescription = data.results[randomNumber].alt_description;
         console.log('image description' , altDescription)
         
-        //create image on html page
-        displayImageDiv.innerHTML = `
-        <img  src="${allImages}"  alt="${altDescription}" id="imageDisplay">
-        </div>
-        `
     })
 }
 
