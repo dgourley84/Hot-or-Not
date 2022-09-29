@@ -20,7 +20,7 @@ let     cityList = [];  //list of previous cities searched
 
 function getEarthWeather(){
 
-    let     CityQueryURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput.value + "&limit=1&appid=" + EarthAPIKey;
+    let     CityQueryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput.value + "&limit=1&appid=" + EarthAPIKey;
 
     console.log(CityQueryURL);  // console log of Earth Query
 
@@ -74,6 +74,40 @@ function getEarthWeather(){
         let     UnsplashQueryBottomUrl = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].bottom +'&client_id=' + UnslplashClientID; // Unsplash query
         console.log('bottom', UnsplashQueryBottomUrl); //console log of top images
 
+        //create 5 days forecast in mini boxes
+        //  iterate over the 5 records to present the forecast weather
+
+        for (let i=1; i <=5; i++){
+
+            let dateF = result.daily[i].dt; // date - dt field
+            console.log('date[0] = ', dateF );
+            let tempF = result.daily[i].temp.day; // temp - temp
+            console.log('temp[0] = ', tempF );
+            let humidityF = result.daily[i].humidity; // humidity - humidity field
+            console.log('humidity[0] = ', humidityF );
+            let windSpeedF = result.daily[i].wind_speed; // wind speed - wind_speed
+            console.log('windspeed', windSpeedF);
+            let iconF = result.daily[i].weather[0].icon; // icon - weather.0.icon
+            console.log('icon[0] = ', iconF );
+            let descriptionF = result.daily[i].weather[0].id; // icon - weather.0.icon
+            console.log('weatherCoditions = ', descriptionF );
+
+
+            weatherConditions[description].top; //obtain images for the top part of an outfit
+            console.log(weatherConditions[description].top);
+            let     UnsplashQueryTopUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].top +'&client_id=' + UnslplashClientID; // Unsplash query
+            console.log('top', UnsplashQueryTopUrlF); //console log of top images
+            
+            weatherConditions[description].middle; //obtain images for the middle part of an outfit
+            console.log(weatherConditions[description].middle);
+            let     UnsplashQueryMiddleUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].middle +'&client_id=' + UnslplashClientID; // Unsplash query
+            console.log('middle', UnsplashQueryMiddleUrlF); //console log of top images
+            
+            weatherConditions[description].bottom; //obtain images for the bottom part of an outfit
+            console.log(weatherConditions[description].bottom);
+            let     UnsplashQueryBottomUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].bottom +'&client_id=' + UnslplashClientID; // Unsplash query
+            console.log('bottom', UnsplashQueryBottomUrlF); //console log of top images
+        }
 })
 })
 }
@@ -142,7 +176,7 @@ function appendToHistory(search) {
     }
     cityList.push(search);
   
-    localStorage.setItem('search-history', JSON.stringify(cityList));
+    localStorage.setItem('cityList', JSON.stringify(cityList));
     storeCityList(search);
 }
 
@@ -172,10 +206,11 @@ function initSearchHistory() {
 //      present this in reverse order
 
 submitCity.addEventListener('click', function(event){
-    storeCityList(event);
+    appendToHistory(event);
     displayCityList(event);
     getEarthWeather();
     getLocationImage();
+    cityInput.value ='';
 })
 
 //upon loading of page publish 
