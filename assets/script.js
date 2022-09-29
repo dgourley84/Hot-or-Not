@@ -94,7 +94,7 @@ function getLocationImage(){
         let altDescription = data.results[randomNumber].alt_description;
         console.log('image description' , altDescription)
         
-        
+        document.body.style.backgroundImage = `url(${allImages})`
     })
 }
 
