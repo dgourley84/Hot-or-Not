@@ -17,11 +17,13 @@ const   mainCardEl          =   document.getElementById('mainCard');          //
 const   mainCardTopEl       =   document.getElementById('topImageMain');
 const   mainCardMiddeEl     =   document.getElementById('middleImageMain');
 const   mainCardBottomEl    =   document.getElementById('bottomImageMain');
+const   forecastCard        =   document.getElementById('forecast');
 
 
 //3. Global variables 
-let     randomNumber = Math.floor(Math.random()*11);
-let     cityList = [];  //list of previous cities searched
+let     randomNumber            = Math.floor(Math.random()*11);
+let     randomNumberSecondary   = Math.floor(Math.random()*11);
+let     cityList                = [];  //list of previous cities searched
 
 
 function getEarthWeather(){
@@ -59,17 +61,15 @@ function getEarthWeather(){
         console.log('icon[0] = ', icon );
         let description = result.daily[0].weather[0].id; // log the weather conditions so that this can be used to call the outfits required.
         console.log('weatherCoditions = ', description );
-
+        //create main card with city data for the weather
         mainCardEl.innerHTML = `
         <h3 class="city name">${cityInput.value}</h3>
             <ul class="date">${moment.unix(date).format("dddd, MMMM Do YYYY")}</ul>
             <ul class="temperature">Temp: ${temp}&#176;C</ul>
-            <img src="http://openweathermap.org/img/wn//${icon}@4x.png">
-        `;
+            <img src="http://openweathermap.org/img/wn//${icon}@4x.png">`;
         
             //obtain the outfit images based on the weather coditions
             let     UnsplashQueryTopUrl = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].top +'&client_id=' + UnslplashClientID; // Unsplash query
-        
             return fetch(UnsplashQueryTopUrl) 
             .then(function(data){
                 return data.json();
@@ -123,36 +123,76 @@ function getEarthWeather(){
         //create 5 days forecast in mini boxes
         //  iterate over the 5 records to present the forecast weather
 
-                            for (let i=1; i <=5; i++){
+                                for (let i=1; i <=5; i++){
+                                let dateF = result.daily[i].dt; // date - dt field
+                                console.log('date[0] = ', dateF );
+                                let tempF = result.daily[i].temp.day; // temp - temp
+                                console.log('temp[0] = ', tempF );
+                                let iconF = result.daily[i].weather[0].icon; // icon - weather.0.icon
+                                console.log('icon[0] = ', iconF );
+                                let descriptionF = result.daily[i].weather[0].id; // icon - weather.0.icon
+                                console.log('weatherCoditions = ', descriptionF);
+                                    forecastCard.innerHTML = `
+                                        <ul class="date">${moment.unix(dateF).format("dddd, MMMM Do YYYY")}</ul>
+                                        <ul class="temperature">Temp: ${tempF}&#176;C</ul>
+                                        <img src="http://openweathermap.org/img/wn//${iconF}@4x.png">`;
 
-                            let dateF = result.daily[i].dt; // date - dt field
-                            console.log('date[0] = ', dateF );
-                            let tempF = result.daily[i].temp.day; // temp - temp
-                            console.log('temp[0] = ', tempF );
-                            let humidityF = result.daily[i].humidity; // humidity - humidity field
-                            console.log('humidity[0] = ', humidityF );
-                            let windSpeedF = result.daily[i].wind_speed; // wind speed - wind_speed
-                            console.log('windspeed', windSpeedF);
-                            let iconF = result.daily[i].weather[0].icon; // icon - weather.0.icon
-                            console.log('icon[0] = ', iconF );
-                            let descriptionF = result.daily[i].weather[0].id; // icon - weather.0.icon
-                            console.log('weatherCoditions = ', descriptionF );
+                                weatherConditions[descriptionF].top; //obtain images for the top part of an outfit
+                                console.log(weatherConditions[descriptionF].top);
+                                let     UnsplashQueryTopUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[descriptionF].top +'&client_id=' + UnslplashClientID; // Unsplash query
+                                console.log('top', UnsplashQueryTopUrlF); //console log of top images
+                                return fetch(UnsplashQueryTopUrlF)
+                                .then(function(data){
+                                    return data.json();
+                                })
+                                .then(function(data){
+                                    console.log(data);
+                                    let topImageForecast = data.results[randomNumberSecondary].urls.thumb;
+                                    console.log(topImageForecast);
+                                    let topImageForecast_Atl = data.results[randomNumberSecondary].alt_description;
+                                    console.log(topImageForecast_Atl);
+                                    var topImgF = document.createElement('div');
+                                    topImgF.innerHTML = `<img src="${TopOutfitImage}" alt="${TopOutFit_Alt}" class="inline-block h-auto">`;
+                                    forecastCard.appendChild(topImgF);
 
+                                    weatherConditions[descriptionF].middle; //obtain images for the middle part of an outfit
+                                    console.log(weatherConditions[descriptionF].middle);
+                                    let     UnsplashQueryMiddleUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[descriptionF].middle +'&client_id=' + UnslplashClientID; // Unsplash query
+                                    console.log('middle', UnsplashQueryMiddleUrlF); //console log of top images
+                                    return fetch(UnsplashQueryMiddleUrlF)
+                                    .then(function(data){
+                                        return data.json();
+                                    })
+                                    .then(function(data){
+                                        console.log(data);
+                                        let middleImageForecast = data.results[randomNumberSecondary].urls.thumb;
+                                        console.log(middleImageForecast);
+                                        let middleImageForecast_Atl = data.results[randomNumberSecondary].alt_description;
+                                        console.log(middleImageForecast_Atl);
+                                        var middleImgF = document.createElement('div');
+                                        middleImgF.innerHTML = `<img src="${MiddleOutfitImage}" alt="${MiddleOutFit_Alt}" class="inline-block h-auto">`;    
+                                        topImgF.insertAdjacentElement('afterend',middleImgF);
 
-                            weatherConditions[description].top; //obtain images for the top part of an outfit
-                            console.log(weatherConditions[description].top);
-                            let     UnsplashQueryTopUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].top +'&client_id=' + UnslplashClientID; // Unsplash query
-                            console.log('top', UnsplashQueryTopUrlF); //console log of top images
-            
-                            weatherConditions[description].middle; //obtain images for the middle part of an outfit
-                            console.log(weatherConditions[description].middle);
-                            let     UnsplashQueryMiddleUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].middle +'&client_id=' + UnslplashClientID; // Unsplash query
-                            console.log('middle', UnsplashQueryMiddleUrlF); //console log of top images
-            
-                            weatherConditions[description].bottom; //obtain images for the bottom part of an outfit
-                            console.log(weatherConditions[description].bottom);
-                            let     UnsplashQueryBottomUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[description].bottom +'&client_id=' + UnslplashClientID; // Unsplash query
-                            console.log('bottom', UnsplashQueryBottomUrlF); //console log of top images
+                                            weatherConditions[descriptionF].bottom; //obtain images for the bottom part of an outfit
+                                            console.log(weatherConditions[descriptionF].bottom);
+                                            let     UnsplashQueryBottomUrlF = 'https://api.unsplash.com/search/photos?query=' + weatherConditions[descriptionF].bottom +'&client_id=' + UnslplashClientID; // Unsplash query
+                                            console.log('bottom', UnsplashQueryBottomUrlF); //console log of top images
+                                            return fetch(UnsplashQueryBottomUrlF)
+                                                .then(function(data){
+                                            return data.json();
+                                            })
+                                                .then(function(data){
+                                            console.log(data);
+                                            let bottomImageForecast = data.results[randomNumberSecondary].urls.thumb;
+                                            console.log(bottomImageForecast);
+                                            let bottomImageForecast_Atl = data.results[randomNumberSecondary].alt_description;
+                                            console.log(bottomImageForecast_Atl);
+                                            var bottomImgF = document.createElement('div');
+                                            bottomImgF.innerHTML = `<img src="${bottomImageForecast}" alt="${bottomImageForecast_Atl}" class="inline-block h-auto">`;    
+                                            topImgF.insertAdjacentElement('afterend',bottomImgF);
+                                        })
+                                    })
+                                })
                             }
                         })
                     })
