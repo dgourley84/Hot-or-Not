@@ -18,30 +18,69 @@
         <h2>What should you wear today?</h2>
 
     </nav>
-
     <section>
-        <div class="d-flex flex-column">
-            <label for="input-city">Enter Your City:</label>
-            <input id="input-city-name" type="text" placeholder="Enter City">
-            <button id="btn-search" type="button" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Submit!</button>
+        <div class="mt-2 p-4 border-b border-grey-light  text-center" id="cityName">
+
         </div>
-        <div id="previous-list" class="overflow-y-auto">
-            
+    </section>
+
+
+
+    <section class="flex justify-center items-center h-2/3 space-x-6">
+        <div class="flex">
+            <label for="input-city">Enter Your City:</label>
+        </div>
+        <div class="flex">    
+            <input id="input-city-name" type="text" placeholder="Enter City">
+        </div>
+        <div class="flex">    
+            <button id="btn-search" type="button" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Submit!</button>
+        </div>
+        <div id="previous-list" class="w-60 h-36 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white overflow-y-auto">
+            <!-- list of previously searched cities -->
         </div>
     </section>
 
     <section>
-        <div class="maincard" id="mainCard">
-            <div class="row" id="OutfitImages">
+        <div class="mx-auto p-4 h-2/4 flex justify-center">
+            <div class="flex flex-wrap">
+                <div class="w-full h-2/4 px-2">
+                    <div class="bg-gray-900 text-white relative min-w-0 break-words rounded-lg overflow-hidden shadow-sm mb-4 w-full bg-white dark:bg-gray-600">
+                        <div class="px-6 py-6 relative" id="mainCard">
+                            <!-- insert current day weather conditions -->
+                        </div>
+                        <div class="divider table mx-2 text-center bg-transparent whitespace-nowrap"><span class="inline-block px-3"><small>What to wear today?</small></span></div>
+                        <div class="px-6 py-6 relative">
+                            <div class="text-center justify-between items-center flex" style="flex-flow: initial;" id='whatToWear'>
+                                <!-- insert images of what you shoul wear for the day -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-<br></br>
     <section>
-        <div class="row" id="forecast">
-            
+        <div class="mx-auto p-4 h-2/4 flex justify-center">
+            <div class="flex flex-wrap">
+                <div class="w-full h-2/4 px-2">
+                    <div class="bg-gray-900 text-white relative min-w-0 break-words rounded-lg overflow-hidden shadow-sm mb-4 w-full bg-white dark:bg-gray-600">
+                        <div class="px-6 py-6 relative" id="forecast">
+                            <!-- insert current day weather conditions -->
+                        </div>
+                        <div class="divider table mx-2 text-center bg-transparent whitespace-nowrap"><span class="inline-block px-3"><small>What to wear tomorrow?</small></span></div>
+                        <div class="px-6 py-6 relative">
+                            <div class="text-center justify-between items-center flex" style="flex-flow: initial;" id="wearTommorrow">
+                                <!-- insert images of what you shoul wear for the day -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+
 
 
     <!-- Linking Jquery -->
