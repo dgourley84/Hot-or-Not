@@ -58,7 +58,7 @@ h2 {
 
 h3 {
     font-weight: 400;
-    color: black;
+    color: white;
 }
 
 .column {
@@ -94,3 +94,10 @@ p {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+@media screen and (max-width:640px) {
+
+    h1 {
+        display: none;
+        }
+    }

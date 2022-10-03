@@ -140,9 +140,9 @@ function getEarthWeather(){
                             
                             whattoWearEL.innerHTML = `
                             <div>
-                            <img src="${TopOutfitImage}" alt="${TopOutFit_Alt}" class="inline-block h-auto">;
-                            <img src="${MiddleOutfitImage}" alt="${MiddleOutFit_Alt}" class="inline-block h-auto">;
-                            <img src="${BottomOutfitImage}" alt="${BottomOutFit_Alt}" class="inline-block h-auto">; 
+                            <img src="${TopOutfitImage}" alt="${TopOutFit_Alt}" class="inline-block h-auto">
+                            <img src="${MiddleOutfitImage}" alt="${MiddleOutFit_Alt}" class="inline-block h-auto">
+                            <img src="${BottomOutfitImage}" alt="${BottomOutFit_Alt}" class="inline-block h-auto"> 
                             </div>
                             `
         
@@ -241,9 +241,9 @@ function getEarthWeather(){
                                             
                                             whatToWearTomEL.innerHTML = `
                                             <div>
-                                            <img src="${topImageForecast}" alt="${topImageForecast_Atl}" class="inline-block h-auto">;
-                                            <img src="${middleImageForecast}" alt="${middleImageForecast_Atl}" class="inline-block h-auto">;
-                                            <img src="${bottomImageForecast}" alt="${bottomImageForecast_Atl}" class="inline-block h-auto">; 
+                                            <img src="${topImageForecast}" alt="${topImageForecast_Atl}" class="inline-block h-auto">
+                                            <img src="${middleImageForecast}" alt="${middleImageForecast_Atl}" class="inline-block h-auto">
+                                            <img src="${bottomImageForecast}" alt="${bottomImageForecast_Atl}" class="inline-block h-auto"> 
                                             </div>
                                             `     
 
@@ -492,9 +492,9 @@ $(function(){
                                         
                                         whattoWearEL.innerHTML = `
                                         <div>
-                                        <img src="${TopOutfitImage}" alt="${TopOutFit_Alt}" class="inline-block h-auto">;
-                                        <img src="${MiddleOutfitImage}" alt="${MiddleOutFit_Alt}" class="inline-block h-auto">;
-                                        <img src="${BottomOutfitImage}" alt="${BottomOutFit_Alt}" class="inline-block h-auto">; 
+                                        <img src="${TopOutfitImage}" alt="${TopOutFit_Alt}" class="inline-block h-auto">
+                                        <img src="${MiddleOutfitImage}" alt="${MiddleOutFit_Alt}" class="inline-block h-auto">
+                                        <img src="${BottomOutfitImage}" alt="${BottomOutFit_Alt}" class="inline-block h-auto">
                                         </div>
                                         `
                     
@@ -593,9 +593,9 @@ $(function(){
                                                         
                                                         whatToWearTomEL.innerHTML = `
                                                         <div>
-                                                        <img src="${topImageForecast}" alt="${topImageForecast_Atl}" class="inline-block h-auto">;
-                                                        <img src="${middleImageForecast}" alt="${middleImageForecast_Atl}" class="inline-block h-auto">;
-                                                        <img src="${bottomImageForecast}" alt="${bottomImageForecast_Atl}" class="inline-block h-auto">; 
+                                                        <img src="${topImageForecast}" alt="${topImageForecast_Atl}" class="inline-block h-auto">
+                                                        <img src="${middleImageForecast}" alt="${middleImageForecast_Atl}" class="inline-block h-auto">
+                                                        <img src="${bottomImageForecast}" alt="${bottomImageForecast_Atl}" class="inline-block h-auto">
                                                         </div>
                                                         `     
                                                     })
